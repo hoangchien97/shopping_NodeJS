@@ -1,0 +1,144 @@
+<% include ../partials/header %>
+<%
+	function format_currency (money) {
+		return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,"$1.");
+	}
+%>
+<section class="main-content-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<!-- BSTORE-BREADCRUMB START -->
+						<div class="bstore-breadcrumb">
+							<a href="index.html">HOMe</a>
+							<span><i class="fa fa-caret-right	"></i></span>
+							<span>Giỏ hàng của tôi</span>
+						</div>
+						<!-- BSTORE-BREADCRUMB END -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<!-- SHOPPING-CART SUMMARY START -->
+						<h2 class="page-title">Thông tin giỏ hàng <span class="shop-pro-item">Tổng số sản phẩm</span></h2>
+						<!-- SHOPPING-CART SUMMARY END -->
+					</div>	
+					
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<!-- SHOPING-CART-MENU START -->
+						<div class="shoping-cart-menu">
+							<ul class="step">
+								<li class="step-current first">
+									<span>01. Thông tin</span>
+								</li>
+								<!-- <li class="step-todo second">
+									<span>02. Sign in</span>
+								</li> -->
+								<li class="step-todo third">
+									<span>02. Địa chỉ</span>
+								</li>
+								<li class="step-todo four" style="width:auto">
+									<span>03. Hình thức thanh toán</span>
+								</li>
+								<li class="step-todo last" id="step_end">
+									<span>04. Thanh toán</span>
+								</li>
+							</ul>									
+						</div>
+						<!-- SHOPING-CART-MENU END -->
+						<!-- CART TABLE_BLOCK START -->
+						<div class="table-responsive">
+							<!-- TABLE START -->
+							<table class="table table-bordered" id="cart-summary">
+								<!-- TABLE HEADER START -->
+								<thead>
+									<tr>
+										<th class="cart-product">Sản phẩm</th>
+										<th class="cart-description">Chi tiết</th>
+										<th class="cart-avail text-center">Tình trạng</th>
+										<th class="cart-unit text-right">Giá</th>
+										<th class="cart_quantity text-center">Số lượng</th>
+										<th class="cart-delete">&nbsp;</th>
+										<th class="cart-total text-right">Tổng</th>
+									</tr>
+								</thead>
+								<!-- TABLE HEADER END -->
+								<!-- TABLE BODY START -->
+								<tbody>	
+									<!-- SINGLE CART_ITEM START -->
+									<% var totalPrice = 0; %>
+									<% data.forEach(function(product,value){ %>
+									<tr>
+										<td class="cart-product">
+											<a href="#"><img alt="Blouse" src="<%= product.item.image %>"></a>
+										</td>
+										<td class="cart-description">
+											<p class="product-name"><a href="#"><%= product.item.name %></a></p>
+											<small>SKU : demo_1</small>
+											<small><a href="#">Size : <%= product.item.size %></a></small>
+										</td>
+										<td class="cart-avail"><span class="label label-success">Còn hàng</span></td>
+										<td class="cart-unit">
+											<ul class="price text-right">
+												<li class="price"><%= format_currency(product.item.price) %></li>
+											</ul>
+										</td>
+										<td class="cart_quantity text-center">
+											<div class="cart-plus-minus-button">
+												<input class="cart-plus-minus" type="text" idsp="<%= product.item._id %>" class="qty" name="qtybutton" value="<%= product.soluong %>">
+											</div>
+										</td>
+										<td class="cart-delete text-center">
+											<span>
+												<a href="/delCart/<%= product.item._id %>" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
+											</span>
+										</td>
+										<td class="cart-total">
+										<% var totalItem = product.item.price * product.soluong %>
+											<span class="price"><%= format_currency(totalItem) %></span>
+										</td>
+									</tr>
+										<% totalPrice += totalItem; %>
+									<% }); %>
+								</tbody>
+								<!-- TABLE BODY END -->
+								<!-- TABLE FOOTER START -->
+								<tfoot>										
+									<tr class="cart-total-price">
+										<td class="cart_voucher" colspan="3" rowspan="4"></td>
+										<td class="text-right" colspan="3">Tổng sản phẩm :</td>
+										<td id="total_product" class="price" colspan="1"><%= count %></td>
+									</tr>
+									<!-- <tr>
+										<td class="text-right" colspan="3">Total shipping</td>
+										<td id="total_shipping" class="price" colspan="1">$5.00</td>
+									</tr> -->
+									<tr>
+										<td class="total-price-container text-right" colspan="3">
+											<span>Tổng tiền</span>
+										</td>
+										<td id="total-price-container" class="price" colspan="1">
+											
+											<span id="total-price"><%= format_currency(totalPrice)%> VND</span>
+										</td>
+									</tr>
+								</tfoot>		
+								<!-- TABLE FOOTER END -->									
+							</table>
+							<!-- TABLE END -->
+						</div>
+						<!-- CART TABLE_BLOCK END -->
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<!-- RETURNE-CONTINUE-SHOP START -->
+						<div class="returne-continue-shop">
+							<a href="/" class="continueshoping"><i class="fa fa-chevron-left"></i>Mua tiếp</a>
+							<a href="/checkout_address" class="procedtocheckout">Tiến hành kiểm tra<i class="fa fa-chevron-right"></i></a>
+						</div>	
+						<!-- RETURNE-CONTINUE-SHOP END -->						
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- MAIN-CONTENT-SECTION END -->
+        <% include ../partials/footer %>

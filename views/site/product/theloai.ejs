@@ -1,0 +1,344 @@
+<% include ../partials/header %>
+<%
+	function format_currency (money) {
+		return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,"$1.");
+	}
+%>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<!-- BSTORE-BREADCRUMB START -->
+						<div class="bstore-breadcrumb">
+							<a href="index.html">HOMe</a>
+							<span><i class="fa fa-caret-right"></i></span>
+							<span><%= category.name %></span>
+						</div>
+						<!-- BSTORE-BREADCRUMB END -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+						<!-- PRODUCT-LEFT-SIDEBAR START -->
+						<div class="product-left-sidebar">
+							<h2 class="left-title pro-g-page-title">Catalog</h2>
+							<div class="product-single-sidebar">
+								<span class="sidebar-title">Thể loại :</span>
+								<ul>
+									<li>
+										<label class="cheker">
+											<input type="checkbox" name="categories"/>
+											<span></span>
+										</label>
+										<a href="#">Tops<span> (12)</span></a>
+									</li>
+									<li>
+										<label class="cheker">
+											<input type="checkbox" name="categories"/>
+											<span></span>
+										</label>
+										<a href="#">Dresses<span> (13)</span></a>
+									</li>
+								</ul>
+							</div>
+							<!-- SINGLE SIDEBAR CATEGORIES END -->
+							<!-- SINGLE SIDEBAR AVAILABILITY START -->
+							<div class="product-single-sidebar">
+								<span class="sidebar-title">Trạng thái</span>
+								<ul>
+									<li>
+										<label class="cheker">
+											<input type="checkbox" name="availability"/>
+											<span></span>
+										</label>
+										<a href="#">Còn hàng<span> (13)</span></a>
+									</li>
+								</ul>
+							</div>
+							<!-- SINGLE SIDEBAR AVAILABILITY END -->
+							<!-- SINGLE SIDEBAR CONDITION START -->
+							<div class="product-single-sidebar">
+								<span class="sidebar-title">Điều kiện</span>
+								<ul>
+									<li>
+										<label class="cheker">
+											<input type="checkbox" name="condition"/>
+											<span></span>
+										</label>
+										<a href="#">Mới<span> (13)</span></a>
+									</li>
+								</ul>
+							</div>
+							<!-- SINGLE SIDEBAR CONDITION END -->
+							<!-- SINGLE SIDEBAR PRICE START -->
+							<div class="product-single-sidebar">
+								<span class="sidebar-title">Giá</span>
+								<ul>
+									<li> 
+										<label><strong>Range:</strong><input type="text" id="slidevalue" /></label>
+									</li>
+									<li>
+										<div id="price-range"></div>	
+									</li>
+								</ul>
+							</div>
+							<!-- SINGLE SIDEBAR PRICE END -->
+							<!-- SINGLE SIDEBAR SIZE START -->
+							<div class="product-single-sidebar">
+								<span class="sidebar-title">Kích thước</span>
+								<ul>
+									<li>
+										<label class="cheker">
+											<input type="checkbox" name="Size"/>
+											<span></span>
+										</label>
+										<a href="#">S<span> (10)</span></a>
+									</li>
+									<li>
+										<label class="cheker">
+											<input type="checkbox" name="Size"/>
+											<span></span>
+										</label>
+										<a href="#">M<span> (10)</span></a>
+									</li>
+									<li>
+										<label class="cheker">
+											<input type="checkbox" name="Size"/>
+											<span></span>
+										</label>
+										<a href="#">L<span> (10)</span></a>
+									</li>
+								</ul>
+							</div>
+							<!-- SINGLE SIDEBAR SIZE END -->
+							<!-- SINGLE SIDEBAR COLOR START -->
+							<div class="product-single-sidebar">
+								<span class="sidebar-title">Color</span>
+								<ul class="product-color-var">
+									<li>
+										<i class="fa fa-square color-beige"></i>
+										<a href="#">Beige<span> (1)</span></a>
+									</li>
+									<li>
+										<i class="fa fa-square color-white"></i>
+										<a href="#">white<span> (2)</span></a>
+									</li>	
+									<li>
+										<i class="fa fa-square color-black"></i>
+										<a href="#">black<span> (2)</span></a>
+									</li>									
+									<li>
+										<i class="fa fa-square color-orange"></i>
+										<a href="#">orange<span> (5)</span></a>
+									</li>
+									<li>
+										<i class="fa fa-square color-blue"></i>
+										<a href="#">blue<span> (8)</span></a>
+									</li>
+									<li>
+										<i class="fa fa-square color-green"></i>
+										<a href="#">green<span> (3)</span></a>
+									</li>
+									<li>
+										<i class="fa fa-square color-yellow"></i>
+										<a href="#">yellow<span> (4)</span></a>
+									</li>
+									<li>
+										<i class="fa fa-square color-pink"></i>
+										<a href="#">pink<span> (6)</span></a>
+									</li>
+								</ul>
+							</div>
+							<!-- SINGLE SIDEBAR PROPERTIES END -->
+						</div>
+						<!-- PRODUCT-LEFT-SIDEBAR END -->
+						<!-- SINGLE SIDEBAR TAG START -->
+						<div class="product-left-sidebar">
+							<h2 class="left-title">Tags </h2>
+							<div class="category-tag">
+								<a href="#">nam</a>
+								<a href="#">nữ</a>
+								<a href="#">váy</a>
+								<a href="#">áo sơ mi</a>
+								<a href="#">áo phông</a>
+								<a href="#">mới</a>
+							</div>
+						</div>
+						<!-- SINGLE SIDEBAR TAG END -->
+					</div>
+					<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+						<div class="right-all-product">
+							<!-- PRODUCT-CATEGORY-HEADER START -->
+							<div class="product-category-header">
+								<div class="category-header-image">
+									<img src="images/frontend/category-header.jpg" alt="category-header" />
+									<div class="category-header-text">
+										<h2><%= category.name %> </h2>
+										<strong>You will find here all woman fashion collections.</strong>
+										<p>This category includes all the basics of your wardrobe and much more:<br /> shoes, accessories, printed t-shirts, feminine dresses, women's jeans!</p>
+									</div>									
+								</div>
+							</div>
+							<!-- PRODUCT-CATEGORY-HEADER END -->
+							<div class="product-category-title">
+								<!-- PRODUCT-CATEGORY-TITLE START -->
+								<h1>
+									<span class="cat-name"><%= category.name %></span>
+									<span class="count-product">Tổng : 13 sản phẩm</span>
+								</h1>
+								<!-- PRODUCT-CATEGORY-TITLE END -->
+							</div>
+							<div class="product-shooting-area">
+								<div class="product-shooting-bar">
+									<!-- SHOORT-BY START -->
+									<div class="shoort-by">
+										<label for="productShort">Sắp theo</label>
+										<div class="short-select-option">
+											<select name="sortby" id="productShort">
+												<option value="">--</option>
+												<option value="">Giá: Lowest first</option>
+												<option value="">Giá: Highest first</option>
+												<option value="">Sắp theo tên: A to Z</option>
+												<option value="">Sắp theo tên: Z to A</option>
+												<option value="">Còn hàng</option>
+												<option value="">Reference: Lowest first</option>
+												<option value="">Reference: Highest first</option>
+											</select>												
+										</div>
+									</div>
+									<!-- SHOORT-BY END -->
+									<!-- SHOW-PAGE START -->
+									<div class="show-page">
+										<label for="perPage">Hiển thị</label>
+										<div class="s-page-select-option">
+											<select name="show" id="perPage">
+												<option value="">11</option>
+												<option value="">12</option>
+											</select>													
+										</div>
+										<span>per page</span>										
+									</div>
+									<!-- SHOW-PAGE END -->
+									<!-- VIEW-SYSTEAM START -->
+									<div class="view-systeam">
+										<label for="perPage">Hiển thị:</label>
+										<ul>
+											<li class="active"><a href=""><i class="fa fa-th-large"></i></a><br />Lưới</li>
+										</ul>
+									</div>
+									<!-- VIEW-SYSTEAM END -->
+								</div>
+								<!-- PRODUCT-SHOOTING-RESULT START -->
+								<div class="product-shooting-result">
+									<!-- <form action="#">
+										<button class="btn compare-button">
+											Compare (<span class="compare-value">1</span>)
+											<i class="fa fa-chevron-right"></i>
+										</button>
+									</form> -->
+									<div class="showing-item">
+										<span>Hiển thị 1 - 12 of 13 sản phẩm</span>
+									</div>
+									<div class="showing-next-prev">
+										<ul class="pagination-bar">
+											<li class="disabled">
+												<a href="#" ><i class="fa fa-chevron-left"></i>Trước</a>
+											</li>
+											<li class="active">
+												<span><a class="pagi-num" href="#">1</a></span>
+											</li>
+											<li>
+												<span><a class="pagi-num" href="#">2</a></span>
+											</li>
+											<li>
+												<a href="#" >Sau<i class="fa fa-chevron-right"></i></a>
+											</li>
+										</ul>
+										<form action="#">
+											<button class="btn showall-button">Hiển thị</button>
+										</form>
+									</div>
+								</div>
+								<!-- PRODUCT-SHOOTING-RESULT END -->
+							</div>
+						</div>
+						<!-- ALL GATEGORY-PRODUCT START -->
+						<div class="all-gategory-product">
+							<div class="row">
+								<ul class="gategory-product">
+									<!-- SINGLE ITEM START -->
+									<% product.forEach(function(pro){ %>
+									<li class="gategory-product-list col-lg-3 col-md-4 col-sm-6 col-xs-12">
+										<div class="single-product-item">
+											<div class="product-image">
+												<a href="/san-pham/<%= pro.slug %>"><img src="<%= pro.image %>" alt="product-image" style="width:200px;height:189.39px"/></a>
+												<a href="single-product.html" class="new-mark-box">new</a>
+												<div class="overlay-content">
+													<ul>
+														<li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
+														<li><a href="/gio-hang/<%= pro._id %>" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+														<li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
+														<li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="product-info">
+												<div class="customar-comments-box">
+													<div class="rating-box">
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star-half-empty"></i>
+													</div>
+													<div class="review-box">
+														<span>1 Bình luận(s)</span>
+													</div>
+												</div>
+												<a href="/san-pham/<%= pro.slug %>"><%= pro.name %></a>
+												<div class="price-box">
+													<span class="price"><%= format_currency(pro.price) %> VND</span>
+												</div>
+											</div>
+										</div>									
+									</li>
+									<%}) %>
+									<!-- SINGLE ITEM END -->
+									<!-- SINGLE ITEM START -->
+									<!-- SINGLE ITEM END -->								
+								</ul>
+							</div>
+						</div>
+						<!-- ALL GATEGORY-PRODUCT END -->
+						<!-- PRODUCT-SHOOTING-RESULT START -->
+						<div class="product-shooting-result product-shooting-result-border">
+							<div class="showing-item">
+								<span>Hiển thị 1 - 12 of 13 sản phẩm</span>
+							</div>
+							<div class="showing-next-prev">
+								<ul class="pagination-bar">
+									<li class="disabled">
+										<a href="#" ><i class="fa fa-chevron-left"></i>Trước</a>
+									</li>
+									<li class="active">
+										<span><a class="pagi-num" href="#">1</a></span>
+									</li>
+									<li>
+										<span><a class="pagi-num" href="#">2</a></span>
+									</li>
+									<li>
+										<a href="#" >Sau<i class="fa fa-chevron-right"></i></a>
+									</li>
+								</ul>
+								<form action="#">
+									<button class="btn showall-button">Hiển thị</button>
+								</form>
+							</div>
+						</div>	
+						<!-- PRODUCT-SHOOTING-RESULT END -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- MAIN-CONTENT-SECTION END -->
+		
+		<% include ../partials/footer %>

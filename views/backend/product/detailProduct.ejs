@@ -1,0 +1,23 @@
+<%
+	function format_currency (money) {
+		return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,"$1.");
+	}
+%>
+<table class="table" border="1px solid">
+    <div class="form-group">
+        <label for="">Tên sản phẩm : </label>
+        <span><b><%=product.name %></b></span>
+    </div>
+    <div class="form-group">
+        <label for="">Ảnh</label>
+        <img src="./<%=product.image %>" class="" alt="" width="300" height="auto">
+    </div>
+    <div class="form-group">
+        <label for="">Chi tiết sản phẩm : </label>
+        <span><b><%=product.description %></b></span>
+    </div>
+    <div class="form-group">
+        <label for="">Giá sản phẩm : </label>
+        <span><b><%=format_currency(product.price) %> VND</b></span>
+    </div>
+ </table>

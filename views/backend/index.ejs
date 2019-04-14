@@ -1,0 +1,63 @@
+<% include partials/header %>
+<% var dongho = function () {
+	var t = new Date();
+	var ngay = t.getDate();
+	var thang = t.getMonth()+1;
+	var nam = t.getFullYear();
+	var thoigian = ngay +' / ' + thang +' / ' + nam;
+	return thoigian;
+	setTimeout('dongho()', 1000);
+} %>
+<!-- //header-ends -->
+<!-- //content -->
+<div class="outter-wp">
+	<!--custom-widgets-->
+	<div class="custom-widgets">
+		<div class="row-one">
+			<div class="col-md-3 widget">
+				<div class="stats-left " style="width:auto">
+					<h5>Ngày</h5>
+					<h4><%= dongho() %></h4>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col-md-3 widget states-mdl">
+				<div class="stats-left">
+					<h5>Today</h5>
+					<h4>Thành viên</h4>
+				</div>
+				<div class="stats-right">
+					<label> <%= countUser %></label>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col-md-3 widget states-thrd">
+				<div class="stats-left">
+					<h5>Today</h5>
+					<h4>Sản phẩm</h4>
+				</div>
+				<div class="stats-right">
+					<label><%= countPro %></label>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col-md-3 widget states-last">
+				<div class="stats-left">
+					<h5>Today</h5>
+					<h4>Thể loại</h4>
+				</div>
+				<div class="stats-right">
+					<label><%= countCate %></label>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<!--//custom-widgets-->
+</div>
+<!--footer section start-->
+<% include partials/footer %>
+<!--footer section end-->
+</div>
+<% include partials/nav %>

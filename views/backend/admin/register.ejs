@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Page Admin Register</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Bootstrap Core CSS -->
+	<link href="../stylesheets/backend/bootstrap.min.css" rel='stylesheet' type='text/css' />
+	<!-- Custom CSS -->
+	<link href="../stylesheets/backend/style.css" rel='stylesheet' type='text/css' />
+	<!-- Graph CSS -->
+	<link href="../stylesheets/backend/font-awesome.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="../stylesheets/frontend/font-awesome.min.css">
+	<!-- jQuery -->
+	<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+	<!-- lined-icons -->
+	<link rel="stylesheet" href="../stylesheets/backend/icon-font.min.css" type='text/css' />
+	<!-- //lined-icons -->
+	<script src="../javascripts/backend/jquery-1.10.2.min.js"></script>
+</head>
+
+<body>
+	<!--/login-->
+	<div class="error_page">
+		<!--/login-top-->
+		<div class="error-top">
+			<h2 class="inner-tittle page">Admin</h2>
+			<div class="login">
+				<h3 class="inner-tittle t-inner">Register</h3>
+				<% include ../error/alert %>
+				<% if(error_msg){%>
+					<h2><%= error_msg %></h2>
+				<% }%>
+				<form action="/admin/register" method="POST">
+					<input type="text" name="email" class="text" onfocus="this.value = '';">
+					<input type="text" name="fullname" id="fullname" placeholder="Fullname" onfocus="this.value = '';">
+					<input type="text" name="address" placeholder="Address" onfocus="this.value = '';">
+					<input type="password" name="password" placeholder="Password" onfocus="this.value = '';">
+					<input type="password" name="password_confirmation" placeholder="Password confirmation" onfocus="this.value = '';">
+					<div class="sign-up">
+						<input type="reset" value="Reset">
+						<input type="submit" onclick="myFunction()" value="Register">
+					</div>
+					<div class="clearfix"></div>
+					<div class="new">
+						<p><label class="checkbox11"><input type="checkbox" name="checkbox"><i> </i>I agree with the terms</label>
+						</p>
+						<p class="sign">Already register ? <a href="/login">Login</a></p>
+						<div class="clearfix"></div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+	<!--//login-top-->
+
+	<!--//login-->
+	<!--footer section start-->
+	<div class="footer">
+		<div class="error-btn">
+			<a class="read fourth" href="index.html">Return to Home</a>
+		</div>
+		<p>&copy <%=  new Date().getFullYear(); %> . All Rights Reserved | Design by <a href="https://w3layouts.com/"
+				target="_blank">HoangChien</a></p>
+	</div>
+	<!--footer section end-->
+	<!--/404-->
+	<!--js -->
+	<script src="../javascripts/backend/jquery.nicescroll.js"></script>
+	<script src="../javascripts/backend/scripts.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../javascripts/backend/bootstrap.min.js"></script>
+</body>
+
+</html>

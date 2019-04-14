@@ -1,0 +1,109 @@
+<% include ../partials/header.ejs %>
+<div class="forms-inner">
+    <!--/set-3-->
+    <div class="set-3">
+        <div class="graph-2 general">
+            <h3 class="inner-tittle two" style="margin-left:40px;">Sửa sản phẩm </h3>
+            <% include ../error/alert.ejs %>
+            <div class="grid-1">
+                <form action="/admin/product/editProduct/<%= product._id %>" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Tên sản phẩm</label>
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope-o"></i>
+                                </span>
+                                <input type="text" class="form-control1 icon" name="txtName" value="<%= product.name %>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Ảnh</label>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon"><input type="file" name="fileImg" id="img"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-5" style="margin-left:50px">
+                            <img src="<%= product.image %>" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="" width="240">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Chi tiết sản phẩm</label>
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <div class="form-group">
+                                  <label for=""></label>
+                                  <textarea class="form-control" name="txtDescription" id="" rows="3"style="margin-left:18px;width:705px"><%= product.description %>
+                                  </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Size</label>
+                        <div class="col-md-3 form-group2 group-mail">
+                            <select name="sltSize">
+                                <option value="">---> Chọn size <---</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </div>
+                        <label class="col-md-2 control-label">Số lượng</label>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope-o"></i>
+                                </span>
+                                <input type="number" class="form-control1 icon" name="txtQuantity" value="<%= product.quantity %>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Giá</label>
+                        <div class="col-md-3">
+                            <div class="input-group input-icon right">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope-o"></i>
+                                </span>
+                                <input id="text" name="txtPrice" class="form-control1 icon" type="text" value="<%= product.price %>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-n">
+                        <label class="col-md-2 control-label form-group2 group-mail">Thể loại</label>
+                        <div class="col-md-8 form-group2 group-mail">
+                            <select name="sltCategory">
+                                <option value="" >---> Chọn thể loại <---</option>
+                                <% category.forEach(function(cat){  
+                                    var select = (product.cat_id == cat.id) ? "selected" : "";
+                                %>
+                                    <option value="<%= cat.id %>" <%= select %> > <%= cat.name %></option>
+                                <%}) %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkbox" class="col-sm-2 control-label">Trạng thái</label>
+                        <div class="col-sm-8">
+                            <% var check = (product.status == true ) ? "checked" : ""; %>
+                            <div class="checkbox-inline1"><label><input type="radio" value="0" name="rdoStatus" <%= check %> > Ẩn</label></div>
+                            <div class="checkbox-inline1"><label><input type="radio" value="1" name="rdoStatus" <%= check %> > Hiện</label></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                    
+                    <button type="submit" class="btn btn-primary">Sửa</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--//set-3-->
+</div>
+
+<% include ../partials/footer.ejs %>
+<!--footer section end-->
+<% include ../partials/nav.ejs %>

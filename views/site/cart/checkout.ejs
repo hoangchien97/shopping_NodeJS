@@ -1,0 +1,150 @@
+<% include ../partials/header %>
+<section class="main-content-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<!-- BSTORE-BREADCRUMB START -->
+						<div class="bstore-breadcrumb">
+							<a href="index.html">HOMe</a>
+							<span><i class="fa fa-caret-right"></i></span>
+							<span>Your payment method</span>
+						</div>
+						<!-- BSTORE-BREADCRUMB END -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<h2 class="page-title">Choose your payment method <span class="shop-pro-item">Your shopping cart contains: 3 products </span></h2>
+					</div>	
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<!-- SHOPING-CART-MENU START -->
+						<div class="shoping-cart-menu">
+							<ul class="step">
+								<li class="step-todo first step-done">
+									<span><a href="cart.html">01. Thông tin</a></span>
+								</li>
+								<li class="step-todo second step-done">
+									<span><a href="/checkout_address">02. Địa chỉ</a></span>
+								</li>
+								<li class="step-todo third step-done" style="width:auto">
+									<span><a href="/checkout_address">03. Hình thức thanh toán</a></span>
+								</li>
+								<li class="step-current last" id="step_end">
+									<span>05. Thanh toán</span>
+								</li>
+							</ul>									
+						</div>
+						<!-- SHOPING-CART-MENU END -->
+						<!-- CART TABLE_BLOCK START -->
+						<div class="table-responsive">
+							<!-- TABLE START -->
+							<table class="table table-bordered" id="cart-summary">
+								<!-- TABLE HEADER START -->
+								<thead>
+									<tr>
+                                        <th class="cart-product">Sản phẩm</th>
+										<th class="cart-description">Chi tiết</th>
+										<th class="cart-avail text-center">Tình trạng</th>
+										<th class="cart-unit text-right">Giá</th>
+										<th class="cart_quantity text-center">Số lượng</th>
+										<th class="cart-total text-right">Tổng</th>
+									</tr>
+								</thead>
+								<!-- TABLE HEADER END -->
+								<!-- TABLE BODY START -->
+								<tbody>
+									<!-- SINGLE CART_ITEM START -->
+									<tr>
+										<td class="cart-product">
+											<a href="#">
+												<img alt="Faded" src="img/product/cart-image3.jpg">
+											</a>
+										</td>
+										<td class="cart-description">
+											<p class="product-name"><a href="#">Faded Short Sleeves T-shirt</a></p>
+											<small>SKU : demo_1</small>
+											<small><a href="#">Size : S, Color : Orange</a></small>
+										</td>
+										<td class="cart-avail">
+											<span class="label label-success">In stock</span>
+										</td>
+										<td class="cart-unit">
+											<ul class="price text-right">
+												<li class="price">$16.51</li>
+											</ul>
+										</td>
+										<td class="cart_quantity text-center">
+											<span>1</span>
+										</td>
+										<td class="cart-total">
+											<span class="price">$16.51</span>
+										</td>
+									</tr>
+									<!-- SINGLE CART_ITEM END -->
+									<!-- SINGLE CART_ITEM START -->
+									<!-- <tr>
+										<td class="cart-product">
+											<a href="#">
+												<img alt="Blouse" src="img/product/cart-image2.jpg">
+											</a>
+										</td>
+										<td class="cart-description">
+											<p class="product-name"><a href="#">Summer Clothing Sleeves T-shirt</a></p>
+											<small>SKU : demo_2</small>
+											<small><a href="#">Size : S, Color : Blac</a></small>
+										</td>
+										<td class="cart-avail">
+											<span class="label label-success">In stock</span>
+										</td>
+										<td class="cart-unit">
+											<ul class="price text-right">
+												<li class="price special-price">$22.95</li>
+												<li class="price-percent-reduction">&nbsp;-15%&nbsp;</li>
+												<li class="old-price">$27.00</li>
+											</ul>
+										</td>
+										<td class="cart_quantity text-center">
+											<span>1</span>
+										</td>
+										<td class="cart-total">
+											<span class="price">$22.95</span>
+										</td>
+									</tr> -->
+									<!-- SINGLE CART_ITEM END -->
+									<!-- SINGLE CART_ITEM END -->
+								</tbody>
+								<!-- TABLE BODY END -->
+								<!-- TABLE FOOTER START -->
+								<tfoot>
+									<tr>
+										<td class="text-right" colspan="4">Tổng sản phẩm</td>
+										<td class="price" colspan="2">3</td>
+									</tr>
+									<tr>
+										<td class="total-price-container text-right" colspan="4">
+											<span>Tổng tiền</span>
+										</td>
+										<td id="total-price-container" class="price" colspan="2">
+											<span id="total-price">$64.86</span>
+										</td>
+									</tr>
+								</tfoot>
+								<!-- TABLE FOOTER END -->								
+							</table>
+							<!-- TABLE END -->
+						</div>
+						<!-- CART TABLE_BLOCK END -->
+					</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<!-- RETURNE-CONTINUE-SHOP START -->
+						<div class="returne-continue-shop">
+							<a href="/" class="continueshoping"><i class="fa fa-chevron-left"></i>Mua tiếp</a>
+							<a href="/checkout_address" class="procedtocheckout">Đặt hàng<i class="fa fa-chevron-right"></i></a>
+						</div>	
+						<!-- RETURNE-CONTINUE-SHOP END -->								
+					</div>
+				</div>
+			</div>
+		</section>
+        <% include ../partials/footer %>

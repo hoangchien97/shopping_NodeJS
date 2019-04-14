@@ -1,0 +1,76 @@
+<% include ../partials/header.ejs %>
+<!--outter-wp-->
+<div class="outter-wp">
+    <!--sub-heard-part-->
+    <div class="sub-heard-part">
+        <ol class="breadcrumb m-b-0">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><%= title %></li>
+        </ol>
+    </div>
+    <!--//sub-heard-part-->
+    <div class="graph-visual tables-main">
+        <h3 class="inner-tittle two">Danh sách Thể loại </h3>
+        <% if(success_msg != ''){ %> 
+            <div class="alert alert-success"><%= success_msg%></div>
+        <% } %>
+        <div class="graph">
+            <div class="tables">
+                    <!-- table-bordered -->
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên</th>
+                            <th>Thể loại cha</th>
+                            <th colspan="3" class="text-center">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%  var i = 0; 
+                            category.forEach(function(item){ 
+                            i++;
+                        %>
+                        <tr>
+                            <th scope="row"><%= i %></th>
+                            <th scope="row"><%= item.name %></th>
+                            <th scope="row"><%= (item.parentId === 1) ? "Nam" : "Nữ" %></th>
+                            <td class="text-center "><a id="<%= item._id %>" ><i class="lnr lnr-eye"></i></a></td>
+                            <td class="text-center"><a href="/admin/category/delCategory/<%= item._id %>" onclick="return acceptDelete('Bạn có chắc chắn muốn xóa không ?');"><i class="lnr lnr-trash"></i></a></td>
+                            <td class="text-center"><a href="/admin/category/editCategory/<%= item._id %>" ><i class="lnr lnr-pencil"></i></a></td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--//graph-visual-->
+</div>
+<!--//outer-wp-->
+</div>
+<!-- Modal VIEW DETAIL-->
+<div class="modal fade" id="modal_view" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+                Body
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer section start-->
+<% include ../partials/footer.ejs %>
+<!--footer section end-->
+<% include ../partials/nav.ejs %>
+<!--//content-inner-->

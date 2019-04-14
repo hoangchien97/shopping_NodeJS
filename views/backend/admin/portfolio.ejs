@@ -1,0 +1,93 @@
+<% include ../partials/header %>
+<!-- //header-ends -->
+						<!--outter-wp-->
+							<div class="outter-wp">
+									<!--sub-heard-part-->
+									  <div class="sub-heard-part">
+									   <ol class="breadcrumb m-b-0">
+											<li><a href="/admin">Trang chủ</a></li>
+											<li class="active"><%= title %></li>
+										</ol>
+									   </div>
+								    <!--//sub-heard-part-->
+										<!--/profile-->
+										<h3 class="sub-tittle pro"><%= title %></h3>
+									       <div class="profile-widget">
+														<img src="images/backend/admin1.jpg" alt=" " />
+														<h2><%= data.fullname %></h2>
+														<p>Admin</p>
+													</div>
+														<!--/profile-inner-->
+														 <div class="profile-section-inner">
+														       <div class="col-md-6 profile-info">
+																	<h3 class="inner-tittle">Personal Information </h3>
+																	<div class="main-grid3">
+																     <div class="p-20">
+																		<div class="about-info-p">
+																			<strong>Full Name</strong>
+																			<br>
+																			<p class="text-muted"><%= data.fullname %></p>
+																		</div>
+																		<div class="about-info-p">
+																			<strong>Địa chỉ : </strong>
+																			<br>
+																			<p class="text-muted"><%= data.address %></p>
+																		</div>
+																		<div class="about-info-p">
+																			<strong>Email</strong>
+																			<br>
+																			<p class="text-muted"><a href="mailto:<%= data.email%>"><%= data.email%></a></p>
+																		</div>
+																	</div>
+																 </div>
+																<h3 class="inner-tittle">Biography </h3>
+																<div class="main-grid3 p-skill">
+																	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+																	<p class="para">But also the leap into electronic typesetting, remaining essentially unchanged.</p>
+																	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+																</div>
+																
+															  </div>
+															   <div class="col-md-6 profile-info two">
+															   <h3 class="inner-tittle">Skill </h3>
+																	<div class="main-grid3">
+																      	<div class="bar">
+																			<p>UI/UX</p>
+																		</div>
+																			<div class="skills">
+																				 <div class="skill1" style="width:100%"> </div>							
+																			</div>
+																				<div class="bar">
+																					<p>HTML / CSS3 / SASS</p>
+																				</div>
+																			<div class="skills">
+																				 <div class="skill2" style="width:90%"> </div>							
+																			</div>
+																				<div class="bar">
+																					<p>Javascript</p>
+																				</div>
+																			<div class="skills">
+																				 <div class="skill3" style="width:75%"> </div>							
+																			</div>
+																			<div class="bar">
+																					<p>Node JS</p>
+																				</div>
+																			<div class="skills">
+																				 <div class="skill4" style="width:85%"> </div>							
+																			</div>
+																    </div>
+															</div>
+															
+											 	<!--//profile-inner-->
+												<!--//profile-->
+									</div>
+									<!--//outer-wp-->
+													
+										
+									 <!--footer section start-->
+										<% include ../partials/footer %>
+									<!--//footer section end-->
+								</div>
+							</div>
+				<!--//content-inner-->
+                <% include ../partials/nav %>
