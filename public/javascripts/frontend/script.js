@@ -2,6 +2,7 @@ $(document).ready(function() {
     // ajax menu
     menu();
     update ();
+    search();
 });
 function menu(){
     $.ajax({
@@ -60,4 +61,25 @@ function update () {
 			}
 		});
 	});
+}
+function search(){
+    $('#txtSearch').keyup(function(e){
+        $('#result').html('');
+        e.preventDefault();
+        var txtSearch = $(this).val();
+        var expression = new RegExp(txtSearch, "i");
+        $.get('/search?txtSearch='+txtSearch,function(data){
+            data.forEach(function(product){
+                if (product.name.search(expression) != -1 || product.slug.search(expression) != -1)
+                {
+                    $('#result').append('<li class="list-group-item link-class"><a href="san-pham/'+product.slug+'"><img src="'+product.image+'" height="40" width="40" class="img-thumbnail" /> '+product.name+' </a></li>');
+                }
+            })
+        })
+    })
+    $('#result').on('click', 'li', function() {
+        var click_text = $(this).text().split('|');
+        $('#txtSearch').val($.trim(click_text[0]));
+        $("#result").html('');
+    });
 }

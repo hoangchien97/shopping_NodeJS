@@ -201,12 +201,8 @@ router.post('/editProduct/:id',upload.single('fileImg'),function(req,res,next){
 router.get('/detailProduct/:id',function(req,res,next){
     var id = req.params.id;
     ProductModel.findById(id).then(function(product){
-        // res.send(product);
-        // cat_id = product.cat_id;
-        // CategoryModel.find({id:cat_id}).then(function(category ){
-            // res.send(cate);
-            res.render("backend/product/detailProduct",{title:"Chi tiết sản phẩm",product:product});
-        // })
+        res.render("backend/product/detailProduct",{title:"Chi tiết sản phẩm",product:product});
+    // })
     })
 })
 

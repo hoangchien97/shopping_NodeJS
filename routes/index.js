@@ -14,13 +14,31 @@ router.get('/menu', function(req, res, next) {
       // res.render('site/product/index');
   })
 });
+// router.get('/', function(req, res, next) {
+//     ProductModel.find().sort({create_at:-1}).then(function(productNew){ // san pham moi nhat
+//       res.render('site/product/index',{productNew:productNew});
+//     })
+// });
+
 router.get('/', function(req, res, next) {
-  // san pham moi nhat
-    ProductModel.find().sort({create_at:-1}).then(function(productNew){
-      res.render('site/product/index',{productNew:productNew});
-    })
-  // })
+  ProductModel.find().sort({create_at:-1}).then(function(productNew){ // san pham moi nhat
+    // Dùng để liên kết join bảng
+    CategoryModel.aggregate([
+      {$lookup: {
+          from: 'product',
+          localField: 'id',
+          foreignField: 'cat_id',
+          as: 'productList'
+      }},
+      {$match: {parentId:{$ne:0}}} // lọc có parentId : 0
+      ]
+    ).then(function(product){
+      // console.log(product);
+      res.render('site/product/index',{productNew:productNew,product:product});
+    });
+  })
 });
+
 router.get('/gioi-thieu', function(req, res, next) {
   res.render('site/page/about');
 });
@@ -29,12 +47,25 @@ router.get('/lien-he', function(req, res, next) {
 });
 // Chi tiet san pham
 router.get('/san-pham/:slug', function(req, res, next) {
-  ProductModel.find({slug:req.params.slug}).then(function(product){
+  var slug = req.params.slug;
+  ProductModel.find({slug:slug}).then(function(product){ // chi tiết sản phẩm
     // console.log(product);
     var cat_id = product[0].cat_id;
+    
+    // viewed
+    
+    if(!req.session.viewed){
+      req.session.viewed = [];
+    }
+    if(req.session.viewed.indexOf(slug)== -1){ // tránh lưu 2 lần viewed
+      req.session.viewed.push(slug);
+    }
+
     CategoryModel.findOne({id:cat_id}).then(function(category){
       // res.send(category);
-      res.render('site/product/single-product',{product:product[0],category:category});
+      ProductModel.find().then(function(productAll){
+        res.render('site/product/single-product',{product:product[0],category:category,viewed:req.session.viewed,productAll:productAll});
+      })
     })
   })
 });
@@ -50,8 +81,29 @@ router.get('/the-loai/:slug', function(req, res, next) {
     })
 // })
 });
-router.get('/search/:txtSearch',function(req,res,next){
-  console.log(req.query);
+router.get('/search',function(req,res,next){
+  // console.log(req.query.txtSearch);
+  var txtSearch = '.*'+req.query.txtSearch+'.*';
+  // console.log(txtSearch);
+  // LIKE
+  if(req.query.txtSearch){
+    ProductModel.find({'name': {$regex: txtSearch}},function(err,product){
+      if(err) console.log(err);
+      res.json(product);
+    })
+  }
+  // else{
+  //   ProductModel.find({},function(err,product){
+  //     if(err) console.log(err);
+  //     else {
+  //       if(req.xhr){ // If req was made with AJAX
+  //           res.json(product); // send back all todos as JSON
+  //       } else {
+  //           res.render("site/product/index", {product: product}); // otherwise render the index view
+  //       }
+  //     }
+  //   })
+  // }
 });
 
 
